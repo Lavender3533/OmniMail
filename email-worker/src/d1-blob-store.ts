@@ -137,7 +137,7 @@ export class D1BlobStore {
       bytes = new TextEncoder().encode(String(value))
     }
 
-    const b64 = arrayBufferToBase64(bytes.buffer)
+    const b64 = arrayBufferToBase64(bytes.buffer as ArrayBuffer)
     const size = bytes.byteLength
 
     await this.db.prepare(

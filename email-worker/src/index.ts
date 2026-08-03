@@ -19,10 +19,7 @@ export default {
     const e = wrapEnv(env)
     return fetchRequest(request, e, context)
   },
-  email: (message: ForwardableEmailMessage, env: Env, ctx: ExecutionContext) => {
-    const e = wrapEnv(env)
-    return receiveEmail(message, e, ctx)
-  },
+  email: (message: ForwardableEmailMessage, env: Env) => receiveEmail(message, wrapEnv(env)),
   queue: (batch: MessageBatch<MailQueueJob>, env: Env) => consumeEmailQueue(batch, wrapEnv(env)),
   scheduled: (_controller: ScheduledController, env: Env) => cleanup(wrapEnv(env)),
 } satisfies ExportedHandler<Env, MailQueueJob>
