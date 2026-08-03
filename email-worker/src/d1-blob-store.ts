@@ -61,6 +61,10 @@ class D1R2ObjectBody extends D1R2Object {
   async blob(): Promise<Blob> {
     return new Blob([this._buf], { type: this.httpMetadata.contentType })
   }
+
+  async json<T = unknown>(): Promise<T> {
+    return JSON.parse(await this.text()) as T
+  }
 }
 
 /* ------------------------------------------------------------------ */
