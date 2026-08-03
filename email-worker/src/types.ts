@@ -31,7 +31,7 @@ export interface CleanupWorkflowParams {
 
 export interface Env {
   DB: D1Database
-  MAIL_BUCKET: R2Bucket
+  MAIL_BUCKET: R2Bucket   // R2 or D1BlobStore (auto-wrapped in index.ts)
   MAIL_QUEUE: Queue<MailQueueJob>
   AI?: Ai
   ASSETS: Fetcher

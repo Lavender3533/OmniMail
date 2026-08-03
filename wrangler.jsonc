@@ -16,13 +16,12 @@
   },
   "d1_databases": [
     {
-      "binding": "DB"
+      "binding": "DB",
+      "database_name": "omni-mail-db",
+      "database_id": "d0769996-cc9a-4891-815c-e8f39099b888"
     }
   ],
   "r2_buckets": [
-    {
-      "binding": "MAIL_BUCKET"
-    },
     {
       "binding": "BACKUP_BUCKET",
       "bucket_name": "omni-mail-backups"
