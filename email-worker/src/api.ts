@@ -248,7 +248,7 @@ app.post('/api/setup', async (context) => {
     return context.json({ error: '显示名称需要在 1–60 个字符之间。' }, 400)
   }
   if (passwordError) return context.json({ error: passwordError }, 400)
-  if (!await secretsEqual(body.setupToken || '', context.env.SETUP_TOKEN)) {
+  if (!await secretsEqual((body.setupToken || '').trim(), (context.env.SETUP_TOKEN || '').trim())) {
     return context.json({ error: '初始化令牌不正确。' }, 403)
   }
 
